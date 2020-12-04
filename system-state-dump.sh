@@ -2,6 +2,7 @@
 
 
 echo "System dump for $(whoami)@$(hostname) at $(date)"
+echo
 
 echo "Hardware:"
 inxi -Fxz
