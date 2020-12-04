@@ -13,7 +13,7 @@ from google.auth.transport.requests import Request
 
 SCOPES = ["https://www.googleapis.com/auth/gmail.send"]
 HOST = socket.gethostname()
-script_dir = Path(__file__).parent.absolute()
+script_dir = Path(__file__).parent.parent.absolute()
 config_path = script_dir / "config.json"
 if not config_path.exists():
     print("Please make a file 'config.json' as described in README.")
@@ -53,11 +53,11 @@ def create_message(sender, to, subject, message_text):
     return {"raw": base64.urlsafe_b64encode(message.as_bytes()).decode()}
 
 
-def send_report():
+def send_dump():
     service = authenticate()
     message = create_message(
         sender="me",
-        to="b.samseth@gmail.com",
+        to="security@inspera.com",
         subject=f"Linux collection report for {config['name']} ({HOST})",
         message_text=subprocess.check_output(
             [f"{script_dir / 'system-state-dump.sh'}"]
@@ -67,4 +67,4 @@ def send_report():
 
 
 if __name__ == "__main__":
-    send_report()
+    send_dump()
