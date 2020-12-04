@@ -8,6 +8,16 @@ This is tested on a Ubuntu based distribution. If you are running something else
 
 Please follow these steps in their entirety to set everything up.
 
+### Clone repo
+
+First things first, you need to clone the repo. The folder can't be in `/tmp`, so just pick somewhere you'd like it to live.
+
+```
+git clone https://github.com/inspera/linux-collection-agent
+# or 
+git clone git@github.com:inspera/linux-collection-agent.git
+```
+
 ### Dependencies
 Install dependencies for hardware collection:
 
@@ -18,7 +28,7 @@ Try running `./system-state-dump.sh` and see if you get any errors.
 
 Second, install Python build tool `poetry`:
 ```
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | $(PYTHON) -
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -
 ```
 Now open a new terminal so that `poetry` is loaded into your `PATH`.
 
@@ -31,15 +41,15 @@ poetry install
 The tool needs to know you name (will be in the subject line in the email).
 
 Make a file called `config.json` in this folder with this structure:
-```json
-{"name": "My full name here"}
+```
+echo '{"name": "My full name"}' > config.json
 ```
 
 ### Gmail Credentials
 
 Go to Gmail docs here: https://developers.google.com/gmail/api/quickstart/python
 
-Click on the `Enable the Gmail API` button and go through the steps.
+Click on the `Enable the Gmail API` button and go through the steps. It doesn't matter what you name things, so just make it something you'll recognize when you see it in a year.
 At the end, download the `credentials.json` file and save it to this folder.
 
 Now you should do a test-run:
@@ -54,7 +64,7 @@ The OAuth consent screen that is presented to the user may show the warning "Thi
 
 Click `advanced` and then `continue`. This is only needed the first time, or if you somehow invalidate the token that is produced in this step.
 
-After this an email should have been sent already.
+After this an email should have been sent already. Please verify with CISO/someone with access to the security@inspera.no account that an email was received.
 
 ### Crontab
 
