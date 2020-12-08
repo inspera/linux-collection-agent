@@ -16,3 +16,9 @@ echo
 echo
 echo "Applications:"
 for app in /usr/share/applications/*.desktop; do app="${app##/*/}"; echo "${app::-8}"; done
+
+
+echo
+echo
+echo "Executables:"
+ls -a /usr/bin
