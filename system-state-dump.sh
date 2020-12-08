@@ -10,7 +10,11 @@ inxi -Fxz
 echo
 echo
 echo "Packages:"
-apt list --installed 2>/dev/null
+if [ -f "/etc/arch-release" ]; then
+	pacman -Q 2>/dev/null
+else
+	apt list --installed 2>/dev/null
+fi
 
 echo
 echo
