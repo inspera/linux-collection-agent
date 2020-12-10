@@ -95,3 +95,8 @@ git pull  # Assuming you are on the main branch.
 poetry install
 ```
 You shouldn't need to update the cron-job, this should be enough. 
+
+Just to verify that everything still works, run the collection script (doesn't send an email, just prints the results)
+```
+./system-state-dump.sh
+```
