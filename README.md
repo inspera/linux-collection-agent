@@ -70,7 +70,7 @@ After this an email should have been sent already. Please verify with CISO/someo
 
 Run 
 ```
-poetry run linux_collection_agent/register_cron_job.py
+poetry run python linux_collection_agent/register_cron_job.py
 ```
 This should set up a cronjob to send a dump every Wednesday at 10am.
 
