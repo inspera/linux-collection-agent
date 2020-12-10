@@ -4,7 +4,17 @@ You need a Gmail account for this to work.
 
 This is tested on a Ubuntu based distribution. If you are running something else you might need to adapt the collection logic. Please make an issue/PR in that case.
 
-## Setup
+## Table of Contents
+- [Initial Setup](#initial-setup)
+  * [Clone repo](#clone-repo)
+  * [Dependencies](#dependencies)
+  * [Configuration](#configuration)
+  * [Gmail Credentials](#gmail-credentials)
+  * [Crontab](#crontab)
+- [Upgrading to a Newer Version](#upgrading-to-a-newer-version)
+
+
+## Initial Setup
 
 Please follow these steps in their entirety to set everything up.
 
@@ -75,3 +85,13 @@ poetry run python linux_collection_agent/register_cron_job.py
 This should set up a cronjob to send a dump every Wednesday at 10am.
 
 Do `crontab -e` to verify that it worked, and optionally adjust the schedule.
+
+## Upgrading to a Newer Version
+
+If a new version has been made since you installed, please update by doing the following:
+
+```
+git pull  # Assuming you are on the main branch.
+poetry install
+```
+You shouldn't need to update the cron-job, this should be enough. 
