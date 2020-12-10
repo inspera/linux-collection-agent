@@ -19,7 +19,10 @@ fi
 echo
 echo
 echo "Applications:"
-for app in /usr/share/applications/*.desktop; do app="${app##/*/}"; echo "${app::-8}"; done
+APPS=$(for app in /usr/share/applications/*.desktop; do app="${app##/*/}"; echo "${app::-8}"; done)
+IN_PATH=$({ IFS=:; ls -H $PATH 2> /dev/null; })
+echo $APPS $IN_PATH | tr " " "\n" | sort | uniq
+
 
 echo
 echo
