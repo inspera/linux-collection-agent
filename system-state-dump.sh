@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 
 echo "System dump for $(whoami)@$(hostname) at $(date)"
