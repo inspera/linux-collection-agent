@@ -31,6 +31,7 @@ git clone git@github.com:inspera/linux-collection-agent.git
 ### Dependencies
 Install dependencies for hardware collection:
 
+#### Ubuntu/Debain
 ```
 sudo apt install inxi
 ```
@@ -41,6 +42,17 @@ Second, install Python build tool `poetry`:
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -
 ```
 Now open a new terminal so that `poetry` is loaded into your `PATH`.
+
+Finally, install the tool:
+```
+poetry install
+```
+
+#### Arch Linux
+```
+sudo pacman -S inxi python-poetry cronie
+```
+Try running `./system-state-dump.sh` and see if you get any errors.
 
 Finally, install the tool:
 ```
